@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Updates - Latest News & Notifications</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h2><i class="fas fa-briefcase"></i> Job Portal</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li class="admin-link"><a href="admin.html">Admin Panel</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Filters -->
+        <section class="filters">
+            <div class="container">
+                <h2>Latest Updates</h2>
+                <div class="filter-tabs">
+                    <button class="filter-btn active" data-category="all">All</button>
+                    <button class="filter-btn" data-category="admit-card">Admit Card</button>
+                    <button class="filter-btn" data-category="jobs">Latest Jobs</button>
+                    <button class="filter-btn" data-category="results">Results</button>
+                    <button class="filter-btn" data-category="notifications">Notifications</button>
+                </div>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search blogs...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Grid -->
+        <section class="blog-grid" id="blogGrid">
+            <div class="container">
+                <!-- Blogs will be loaded here -->
+            </div>
+        </section>
+
+        <!-- Blog Detail Modal -->
+        <div id="blogModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="modalBody"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Blog Management</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Login Modal -->
+        <div id="loginModal" class="modal active">
+            <div class="modal-content">
+                <h2><i class="fas fa-lock"></i> Admin Login</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" id="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Login</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Admin Dashboard -->
+        <div id="adminDashboard" class="admin-dashboard" style="display: none;">
+            <header class="admin-header">
+                <h1><i class="fas fa-cogs"></i> Blog Management</h1>
+                <button id="logoutBtn" class="btn-secondary">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </header>
+
+            <!-- Add/Edit Blog Form -->
+            <div class="admin-form">
+                <h3 id="formTitle">Add New Blog</h3>
+                <form id="blogForm">
+                    <input type="hidden" id="blogId">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input type="text" id="blogTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select id="blogCategory" required>
+                                <option value="admit-card">Admit Card</option>
+                                <option value="jobs">Latest Jobs</option>
+                                <option value="results">Results</option>
+                                <option value="notifications">Notifications</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Featured Image</label>
+                        <input type="file" id="blogImage" accept="image/*">
+                        <img id="imagePreview" style="max-width: 200px; display: none;">
+                    </div>
+                    <div class="form-group">
+                        <label>Excerpt (Short Description)</label>
+                        <textarea id="blogExcerpt" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Featured</label>
+                        <input type="checkbox" id="blogFeatured">
+                    </div>
+                    <div class="form-group">
+                        <label>Content</label>
+                        <div contenteditable="true" id="blogContent" class="rich-editor">
+                            <p>Start writing your content here...</p>
+                        </div>
+                        <div class="editor-toolbar">
+                            <button type="button" class="toolbar-btn" data-command="bold"><i class="fas fa-bold"></i></button>
+                            <button type="button" class="toolbar-btn" data-command="italic"><i class="fas fa-italic"></i></button>
+                            <button type="button" class="toolbar-btn" data-command="insertUnorderedList"><i class="fas fa-list-ul"></i></button>
+                            <button type="button" class="toolbar-btn" data-command="insertOrderedList"><i class="fas fa-list-ol"></i></button>
+                            <button type="button" class="toolbar-btn" data-command="insertHorizontalRule"><i class="fas fa-minus"></i></button>
+                            <button type="button" class="toolbar-btn" data-command="formatBlock" data-value="h2">H2</button>
+                            <button type="button" class="toolbar-btn" data-command="formatBlock" data-value="h3">H3</button>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Save Blog</button>
+                        <button type="button" id="cancelEdit" class="btn-secondary" style="display: none;">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Blogs List -->
+            <div class="blogs-list">
+                <h3>Manage Blogs</h3>
+                <div id="adminBlogGrid" class="admin-grid">
+                    <!-- Blogs will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
